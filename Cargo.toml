@@ -1,0 +1,12 @@
+[package]
+name = "mountain_protocol_api_tester"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+reqwest = "0.11"
+tokio = { version = "1", features = ["full"] }
+hmac = "0.10"
+sha2 = "0.9"
+base64 = "0.13"
+dotenv = "0.15.0"
