@@ -11,7 +11,7 @@ async fn main() -> Result<(), reqwest::Error> {
 
     let api_key = env::var("API_KEY").expect("API_KEY must be set");
     let secret_key = env::var("SECRET_KEY").expect("SECRET_KEY must be set");
-    let url = "https://api.mountainprotocol.com/v1/balance";
+    let url = "https://api.beta.mountainprotocol.com/v1/balance";
 
     let timestamp = SystemTime::now()
         .duration_since(UNIX_EPOCH)
@@ -19,7 +19,7 @@ async fn main() -> Result<(), reqwest::Error> {
         .as_secs();
     let string_to_sign = format!(
         "{}:{}:{}:{}:{}:{}:{}",
-        api_key, timestamp, "api.mountainprotocol.com", "GET", "/v1/balance", "", ""
+        api_key, timestamp, "api.beta.mountainprotocol.com", "GET", "/v1/balance", "", ""
     );
 
     let mut mac =
@@ -41,8 +41,6 @@ async fn main() -> Result<(), reqwest::Error> {
         .await?;
     println!("Received response");
 
-    println!("Status: {}", response.status());
-    println!("Headers:\n{:?}", response.headers());
     println!("Body:\n{}", response.text().await?);
 
     Ok(())
