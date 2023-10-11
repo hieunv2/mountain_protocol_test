@@ -123,7 +123,7 @@ async fn test_transaction_detail() -> Result<(), reqwest::Error> {
 
     let transaction_id = "hhzVZeZrs8zQlLXOhM_y4w"; // Replace with actual transaction ID
     let url = format!(
-        "https://api.beta.mountainprotocol.com/v1/transaction/detail/{}",
+        "https://api.prod.mountainprotocol.com/v1/transaction/detail/{}",
         transaction_id
     );
 
@@ -136,7 +136,7 @@ async fn test_transaction_detail() -> Result<(), reqwest::Error> {
         "{}:{}:{}:{}:{}:{}:{}",
         api_key,
         timestamp,
-        "api.beta.mountainprotocol.com",
+        "api.prod.mountainprotocol.com",
         "GET",
         format!("/v1/transaction/detail/{}", transaction_id),
         "",
