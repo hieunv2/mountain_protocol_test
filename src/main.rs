@@ -121,7 +121,7 @@ async fn test_transaction_detail() -> Result<(), reqwest::Error> {
     let api_key = env::var("API_KEY").expect("API_KEY must be set");
     let secret_key = env::var("SECRET_KEY").expect("SECRET_KEY must be set");
 
-    let transaction_id = "x7IQcTIBHJf5AugDbZ-UZg"; // Replace with actual transaction ID
+    let transaction_id = "hhzVZeZrs8zQlLXOhM_y4w"; // Replace with actual transaction ID
     let url = format!(
         "https://api.beta.mountainprotocol.com/v1/transaction/detail/{}",
         transaction_id
@@ -218,7 +218,7 @@ async fn main() -> Result<(), reqwest::Error> {
     //     );
     // }
     // test_withdraw().await;
-    test_balance().await;
+    test_transaction_detail().await;
 
     Ok(())
 }
