@@ -72,11 +72,10 @@ async fn test_withdraw() -> Result<(), reqwest::Error> {
         .expect("Time went backwards")
         .as_secs();
 
-    // Adjust the payload as per actual requirements
     let payload = json!({
-        "amount": 10000,
+        "amount": 5000,
         "toAddress": "0x8e1337f416A56A9FE0B108bc96A645c76d075FCD",
-        "currency": "USDM",
+        "currency": "USDC",
     });
 
     // Serialize the payload to a JSON string
@@ -219,7 +218,7 @@ async fn main() -> Result<(), reqwest::Error> {
     //     );
     // }
     // test_withdraw().await;
-    test_balance().await;
+    test_withdraw().await;
 
     Ok(())
 }
