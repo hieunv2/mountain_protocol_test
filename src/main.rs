@@ -73,7 +73,7 @@ async fn test_withdraw() -> Result<(), reqwest::Error> {
         .as_secs();
 
     let payload = json!({
-        "amount": 5000,
+        "amount": 10000,
         "toAddress": "0x8e1337f416A56A9FE0B108bc96A645c76d075FCD",
         "currency": "USDC",
     });
