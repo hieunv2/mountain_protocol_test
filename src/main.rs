@@ -219,7 +219,7 @@ async fn main() -> Result<(), reqwest::Error> {
     //     );
     // }
     // test_withdraw().await;
-    test_transaction_detail().await;
+    test_balance().await;
 
     Ok(())
 }
