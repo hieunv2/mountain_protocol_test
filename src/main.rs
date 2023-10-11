@@ -65,7 +65,7 @@ async fn test_balance() -> Result<(), reqwest::Error> {
 async fn test_withdraw() -> Result<(), reqwest::Error> {
     let api_key = env::var("API_KEY").expect("API_KEY must be set");
     let secret_key = env::var("SECRET_KEY").expect("SECRET_KEY must be set");
-    let url = "https://api.beta.mountainprotocol.com/v1/withdraw/submit";
+    let url = "https://api.prod.mountainprotocol.com/v1/withdraw/submit";
 
     let timestamp = SystemTime::now()
         .duration_since(UNIX_EPOCH)
@@ -74,9 +74,9 @@ async fn test_withdraw() -> Result<(), reqwest::Error> {
 
     // Adjust the payload as per actual requirements
     let payload = json!({
-        "amount": 10,
-        "toAddress": "0x76a3C63e1996De61c39ca38fD9c84a133B2c41Be",
-        "currency": "USDC",
+        "amount": 10000,
+        "toAddress": "0x8e1337f416A56A9FE0B108bc96A645c76d075FCD",
+        "currency": "USDM",
     });
 
     // Serialize the payload to a JSON string
@@ -86,7 +86,7 @@ async fn test_withdraw() -> Result<(), reqwest::Error> {
         "{}:{}:{}:{}:{}:{}:{}",
         api_key,
         timestamp,
-        "api.beta.mountainprotocol.com",
+        "api.prod.mountainprotocol.com",
         "POST",
         "/v1/withdraw/submit",
         "",
@@ -218,7 +218,7 @@ async fn main() -> Result<(), reqwest::Error> {
     //         usdc_amount
     //     );
     // }
-    test_balance().await;
+    test_withdraw().await;
 
     Ok(())
 }
